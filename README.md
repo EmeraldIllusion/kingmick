@@ -11,3 +11,9 @@ Quaddie and single-race setup; per-tipster four-position entry; on-device autosa
 
 ## Important limitations
 This is a working beta, not a guaranteed betting product. Review all selections before placing wagers. The app currently supports four quaddie legs, and Daily Double/Treble choices are limited to consecutive legs within those four. Points ties are shown, but an ordered top-two ranking can still contain points ties: inspect leaderboards before using rank-dependent multis. Horse numbers are not validated against live race fields. Historical statistics summarize entries, not actual bet results. Local browser data can be lost if browser/site storage is cleared: export backups. This version does not support multiple synchronized devices or cloud data.
+
+
+## Version 2: results and tipsters
+Adds historical prediction snapshots, read-only original tipster picks, editable race results, strike-rate calculations, linked tipster profiles, name suggestions and duplicate detection. Backup files now include tipster profiles. Older completed meetings are migrated: their original selections and bets are reconstructed from saved tipster data. This reconstruction is marked in History; it cannot verify what was displayed by an earlier software version. Existing browser data is retained using the same localStorage key.
+
+**Before upgrading, export a JSON backup from the existing app's History screen.** Then replace the files on GitHub. Results are manually entered; no bookmaker payout, financial return or place-term data is inferred.
