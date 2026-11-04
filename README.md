@@ -1,13 +1,31 @@
-# KingMick V4 — My Actual Bets
-
-V4 adds placed-ticket recording, scratching adjustments and optional Daily Double/Treble tracking to the V3 app. Existing scoring and special KingMick selection rules are unchanged.
+# KingMick V4.2 — quick bet review
 
 ## Upgrade
 
-1. In your current KingMick app, open **History → Export Backup**. Keep this JSON backup safe, including the race results you recently entered.
-2. Extract this ZIP and upload **all files inside it** to the existing GitHub repository root, replacing the corresponding files. Include the new **my-bets.js** file. Do not upload the ZIP itself or put the files in an extra folder.
-3. Commit the changes and wait for GitHub Pages deployment. Open your usual KingMick address in the same Brave browser and refresh. The home screen should say **KINGMICK V4**.
-4. Check History. The same browser storage key is used, so existing meetings, results, prediction snapshots and Tipster Profiles remain available. Do not clear site data. Restore your JSON backup only if needed.
+Export a fresh backup from History if possible. Extract this ZIP and upload every file into your existing GitHub repository root, replacing matching files. Include the new **kingmick-v4-2.js** file. Commit and wait for GitHub Pages deployment.
+
+Then open **https://emeraldillusion.github.io/kingmick/?update=4.2** in the same Brave browser and device. The home screen should say **KINGMICK V4.2**. Do not clear site data. Existing meetings, results, actual tickets and profiles use the same data key.
+
+This release retains the single uniquely named script and cache fix. Older app.js, my-bets.js and kingmick-v4-1.js files may remain in the repository; V4.2 does not load them.
+
+## Review My Bets — fast checklist
+
+Open **History → View meeting → Review My Bets — Quick Checklist**, or the quick-review button inside My Bets.
+
+- **Won / Lost:** confirms you placed the original selections unchanged and records a manual outcome. A later click updates that same recorded ticket; it does not add a duplicate.
+- **Pending:** confirms you placed the ticket, but its outcome is not yet settled. It is excluded from settled attempts.
+- **Didn’t Place:** records that you skipped a recommendation. It creates no actual ticket and never enters actual-bet strike rates. Reset this choice if needed.
+- **Changed This Bet:** opens the original selections for editing. Make the scratching substitution or other tweak, choose the outcome and save. Existing linked tickets are edited in place.
+- **Bulk losses:** tick the unrecorded recommendations you placed, then press **Mark Selected as Lost**. You can select all available rows in the current filter. Existing recorded tickets and Didn’t Place rows are excluded from bulk selection.
+- **Filters:** choose KingMick, Multis or All Bets, then optionally a specific race. Changing filters clears bulk selections so hidden rows are not marked accidentally.
+
+Tickets you already recorded are recognised by their recommendation link or an exact match of their selections. Matching includes the race, so an identical horse list in a different leg is not confused with this one. Recorded rows show their outcome and are protected from bulk actions.
+
+If an adjusted custom ticket cannot be matched safely, a notice shows how many existing tickets remain unlinked. Use **Link Existing Ticket** on the appropriate recommendation and choose the ticket you already entered. Linking preserves its selections and outcome while associating it with that strategy. It does not create another ticket.
+
+If you have multiple recorded tickets for the same recommendation, each is listed separately for editing; a quick row outcome will not overwrite all of them. Optional Daily Double/Treble bets remain configured in My Bets and require manual outcomes; they are never assumed to be offered for arbitrary Quaddie legs.
+
+Original tips, boards, scores, recommendations and snapshots remain unchanged. New checklist choices and ticket links are included in the normal JSON backup.
 
 ## Record the bets you actually placed
 

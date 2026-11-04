@@ -2,3 +2,4 @@
 .field textarea{width:100%;background:#111c15;color:white;border:1px solid #48614f;border-radius:9px;padding:12px;font:inherit;resize:vertical}.two{grid-template-columns:repeat(2,minmax(0,1fr))}.bet-leg{padding:10px 0;border-bottom:1px solid #36503e}.panel .btn+.btn{margin-top:9px}.panel p{overflow-wrap:anywhere}.panel h3{overflow-wrap:anywhere}.row h3{min-width:0}.row>strong{flex-shrink:0}select{min-width:0;max-width:100%}
 
 main>.btn+.btn{margin-top:10px}.row h3{margin:8px 0}input,select,textarea{scroll-margin:90px}
+.review-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0}.review-actions .btn+.btn{margin-top:0}.review-check{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:12px;min-width:44px}.review-check input{width:23px;height:23px;accent-color:#72d894}.review-card .row h3{font-size:16px}.review-status{font-size:13px;font-weight:800;color:#c3e5b5}.bulk-review .actions{margin-bottom:12px}
