@@ -1,18 +1,20 @@
-# V4.2 validation
+# V4.3 validation
 
-Focused automated browser checks at a 390 × 844 viewport passed for:
+Focused headless Chromium checks passed for:
 
-- Recognising a winning actual ticket recorded before the checklist, without duplication.
-- Repeated Won/Lost actions updating the same ticket rather than adding copies.
-- Pending exclusion and Didn’t Place creating no actual ticket.
-- Bulk losses recording only selected, unrecorded tickets and protecting existing wins and skipped recommendations.
-- Editing a scratching replacement, retaining its original finishing-position restrictions, saving it and returning to the checklist.
-- Updating a changed ticket's outcome without losing its replacement selections.
-- Matching unchanged custom tickets by selections and race; manually linking an adjusted custom ticket without altering it or adding another ticket.
-- Multi quick outcomes, select-all/clear, strategy/race filtering and filter selection reset.
-- Preservation of the original prediction snapshot, saved checklist choices and actual ticket counts across reload.
-- No horizontal overflow in the tested phone layout, and offline loading of V4.2.
+- My Bet Results as the default, with correct win totals and collapsed categories.
+- Plain prediction-accuracy labels, the optional explanation and a minimal scratching checkbox.
+- Clear empty-result messages and direct display of historical-only predictions.
+- Tipsters available from Home, with redundant shortcuts removed.
+- Protection of profiles referenced by completed meetings, unfinished meetings, original snapshots and legacy name-only entries.
+- Individual and bulk deletion of unused profiles, including eligibility after deleting a meeting.
+- Settled review rows hidden in a collapsed Reviewed section, with existing outcomes retained.
+- Re-copying a recorded recommendation opening its existing ticket.
+- Rejection of an identical custom ticket instead of creating a duplicate.
+- Explicit comparison and keeper selection for existing duplicate links. Other entries are archived only after confirmation; original predictions remain unchanged.
+- Saved actual tickets and archived duplicates retained after reload.
+- No horizontal overflow at a 390 × 844 phone viewport and no page JavaScript errors during the checks.
 
-The stale-cache upgrade test also reproduced the earlier mixed V3/V4 error, then verified the uniquely named V4.2 bundle restores functional buttons, preserves browser data and supports offline navigation through the existing caches.
+A separate cached-upgrade test verified the V4.3 update URL against an installed V4.2 worker and browser cache, with working controls, unchanged saved browser data and offline navigation.
 
-Existing V4.1 betting algorithms and results evaluation were retained. Checks used synthetic fixtures, not the user's live tickets. The live GitHub deployment was not changed.
+The betting algorithms were not changed. Tests used synthetic fixtures; the user's live data and GitHub deployment were not modified.

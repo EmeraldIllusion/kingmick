@@ -1,83 +1,60 @@
-# KingMick V4.2 — quick bet review
+# KingMick V4.3 — simpler results and review
 
-## Upgrade
+## Install
 
-Export a fresh backup from History if possible. Extract this ZIP and upload every file into your existing GitHub repository root, replacing matching files. Include the new **kingmick-v4-2.js** file. Commit and wait for GitHub Pages deployment.
+1. Export a fresh JSON backup from History.
+2. Extract this ZIP. Upload **all files inside it** into the existing GitHub repository root, replacing matching files. Include **kingmick-v4-3.js**.
+3. Commit and wait for GitHub Pages deployment.
+4. Open **https://emeraldillusion.github.io/kingmick/?update=4.3** in the same Brave browser and device. Refresh once if needed. The heading should say **KINGMICK V4.3**.
 
-Then open **https://emeraldillusion.github.io/kingmick/?update=4.2** in the same Brave browser and device. The home screen should say **KINGMICK V4.2**. Do not clear site data. Existing meetings, results, actual tickets and profiles use the same data key.
+Do not clear site data. The same saved-data key is used. Existing meetings, tips, prediction snapshots, results, ticket outcomes, checklist choices and profiles carry forward. Older versioned JavaScript files can remain in the repository; this version loads only the new bundle.
 
-This release retains the single uniquely named script and cache fix. Older app.js, my-bets.js and kingmick-v4-1.js files may remain in the repository; V4.2 does not load them.
+## A simpler Performance page
 
-## Review My Bets — fast checklist
+Performance now opens on **My Bet Results**:
 
-Open **History → View meeting → Review My Bets — Quick Checklist**, or the quick-review button inside My Bets.
+- One summary: wins out of settled bets, plus the win percentage.
+- Expandable Quaddies, Trifectas, First Fours, Exactas, Multis, Daily Doubles and Trebles. Only categories with records appear.
+- Plain explanations when no bets have been recorded, or results are still pending.
+- Pending and Void do not enter settled-bet counts. Didn’t Place never creates an actual ticket.
 
-- **Won / Lost:** confirms you placed the original selections unchanged and records a manual outcome. A later click updates that same recorded ticket; it does not add a duplicate.
-- **Pending:** confirms you placed the ticket, but its outcome is not yet settled. It is excluded from settled attempts.
-- **Didn’t Place:** records that you skipped a recommendation. It creates no actual ticket and never enters actual-bet strike rates. Reset this choice if needed.
-- **Changed This Bet:** opens the original selections for editing. Make the scratching substitution or other tweak, choose the outcome and save. Existing linked tickets are edited in place.
-- **Bulk losses:** tick the unrecorded recommendations you placed, then press **Mark Selected as Lost**. You can select all available rows in the current filter. Existing recorded tickets and Didn’t Place rows are excluded from bulk selection.
-- **Filters:** choose KingMick, Multis or All Bets, then optionally a specific race. Changing filters clears bulk selections so hidden rows are not marked accidentally.
+**KingMick Predictions** is a separate view for the original generated recommendations. It includes a small scratching filter and expandable bet categories. Earlier betting rules remain separate when both old and current predictions exist; if history contains only earlier predictions, those are displayed directly instead of appearing blank.
 
-Tickets you already recorded are recognised by their recommendation link or an exact match of their selections. Matching includes the race, so an identical horse list in a different leg is not confused with this one. Recorded rows show their outcome and are protected from bulk actions.
+The optional **How accurate were the selections?** section explains individual-race accuracy in plain language:
 
-If an adjusted custom ticket cannot be matched safely, a notice shows how many existing tickets remain unlinked. Use **Link Existing Ticket** on the appropriate recommendation and choose the ticket you already entered. Linking preserves its selections and outcome while associating it with that strategy. It does not create another ticket.
+- Highest-ranked horse won.
+- Winner among the four highest-ranked horses.
+- Winner in KingMick’s selections.
 
-If you have multiple recorded tickets for the same recommendation, each is listed separately for editing; a quick row outcome will not overwrite all of them. Optional Daily Double/Treble bets remain configured in My Bets and require manual outcomes; they are never assumed to be offered for arbitrary Quaddie legs.
+A **What does this mean?** explanation clarifies that covering an individual winner is different from winning an entire Quaddie or multi.
 
-Original tips, boards, scores, recommendations and snapshots remain unchanged. New checklist choices and ticket links are included in the normal JSON backup.
+## Faster bet review
 
-## Record the bets you actually placed
+In **History → View meeting → Review My Bets**:
 
-Open **History → View meeting → My Bets**.
+- Won, Lost, Void and Didn’t Place rows move into a collapsed **Reviewed** section.
+- Pending and unrecorded rows remain available to review.
+- The counter shows how many remain in the current filtered view.
+- Expand Reviewed, then a specific row, to edit a saved choice.
+- Bulk losses still skip existing recorded tickets and Didn’t Place choices.
 
-- **Copy a recommendation:** select a saved recommendation, then tap Copy & Edit. You can also use “I placed this bet” directly from the recommendation screen.
-- **Add a custom ticket:** choose Exacta, Trifecta, First Four, Quaddie, Multi, Daily Double or Treble. Multiple tickets of the same type can be saved independently.
-- **Match your bookmaker receipt:** record Straight, Boxed, Position selections or Explicit combinations for race-based bets. Quaddies use per-leg horse lists. Multis use one horse per race with individual Win/Place choices, including mixed multis.
-- **Save as placed bet:** only this action creates a performance record. Opening a recommendation or drafting a ticket does not count as an attempt.
-- **Edit / Delete:** changes affect your recorded ticket only. Original tips, consensus scores, leaderboards and prediction snapshots stay intact.
+## Duplicate protection
 
-For your latest historical Quaddie, copy each recommendation you used and edit it to match your actual tickets. You can do this after the race results have already been entered.
+Copying a recommendation already recorded now opens the existing ticket. Saving an identical custom ticket or attaching a second ticket to an occupied recommendation is blocked. Changes should be made by editing the saved ticket.
 
-## Scratchings
+Existing duplicate links are not silently deleted. A notice in My Bet Results offers a comparison screen. Choose the correct ticket to keep; the other linked entries are archived and removed from actual-bet totals only after confirmation. Archived ticket data stays in the meeting and in JSON backups. Export a backup before resolving old duplicates if you want a separate copy of the original record.
 
-In **Race Numbers & Scratchings**, you can record scratched runners for each leg. This flags affected original recommendations and enables an exclusion filter in the original-performance view. It does not substitute horses automatically.
+## Tipsters in one place
 
-Within a ticket editor, expand **Replace a scratched horse**, select the affected race, enter the scratched and replacement numbers, and apply. It replaces the horse in the same positions on this ticket, rather than reranking all horses. The scratching is recorded when you save; Cancel discards the draft adjustment. Repeated horse numbers in different races are treated as different runners, so a replacement requires a race selection.
+Open **Tipsters** from Home. The duplicate Tipster Profiles shortcuts in History and Performance have been removed.
 
-Always verify the final ticket against your receipt. A replacement that is already present may reduce the number of valid combinations; impossible combinations with the same horse in two finishing positions cannot be saved.
+- Delete is available only when no remaining saved meeting refers to the profile.
+- Unfinished meetings, meetings without results, and original prediction snapshots also protect a profile.
+- Older entries without profile IDs are checked by name/alias so their profiles are not accidentally deleted.
+- **Delete all unused tipsters** removes orphaned test names after confirmation. It does not remove anyone still referenced by a saved meeting.
 
-## Actual outcomes and performance
+## Existing behaviour retained
 
-Open **KingMick Performance → My Actual Bets**, or use Performance from a saved meeting’s My Bets screen.
+The 20/15/10/5 scoring, strict 35-point Quaddie rule and low-consensus exception, explicit point ties, KingMick positional rules, manually entered race results, official paid-place terms, optional manually settled Daily Doubles/Trebles, ticket editing, backup/restore and offline operation remain available.
 
-| Outcome | Included in attempts? |
-| --- | --- |
-| Won | Yes; successful attempt |
-| Lost | Yes; unsuccessful attempt |
-| Pending | No |
-| Void | No |
-
-Regular actual tickets default to automatic comparison with the entered finishing results. Place multis also need the official paid-place count for every relevant race. Missing information leaves them Pending. You can record a manual outcome to match a bookmaker settlement; this is explicitly labelled and takes precedence over automatic assessment. Editing results recalculates automatic outcomes, while manual outcomes stay as recorded.
-
-Each ticket counts once, regardless of its number of combinations. Tickets copied from a KingMick recommendation remain grouped under that strategy in actual-bet performance. Unsaved recommendations never enter My Actual Bets. Original recommendation strike rates remain a separate view, with an option to exclude scratching-affected recommendations.
-
-## Optional Daily Doubles and Trebles
-
-These are no longer automatically generated or scored for consecutive Quaddie legs. The earlier automatic Daily Double/Treble performance entries are removed from analysis; the underlying stored prediction snapshots remain untouched.
-
-1. Set the real race numbers under **Race Numbers & Scratchings**, including Early/Main Quaddie where applicable. New Quaddie setup also asks for these details.
-2. Open Optional Daily Double or Treble, and select any two or three distinct entered races. They do not have to be consecutive.
-3. Check that these are the bookmaker’s nominated races. KingMick does not verify market availability.
-4. Generate selections, adjust to your actual receipt and save only if placed.
-5. Explicitly mark **Won, Lost, Pending or Void** after settlement. There is no automatic outcome option for these products. Only manually recorded Won/Lost tickets enter performance attempts.
-
-Race selection is limited to the races entered in this saved meeting. A product involving races outside those four requires a separate meeting with the relevant race data; V4 does not infer missing selections.
-
-## Data and existing features
-
-V4 keeps V3’s strict 35-point Quaddie threshold, low-consensus exception, explicit tie reporting, special positional betting rules, correct boxed combination counts, Tipster Profiles, result validation and offline support. V3 and V4 share the same betting-rule version because the algorithms are unchanged. Older and reconstructed prediction histories remain separately identified.
-
-Backup/restore includes actual tickets, their manual outcomes, scratching notes, race mappings, profiles, results and original snapshots. Data remains on this browser/device; no cloud synchronisation or live result feed is added. Browser storage is finite, so keep exported backups. Profit, stakes and payout tracking remain deferred.
-
-The app does not infer dead-heat adjustments, deductions, automatic substitute-favourite rules or other special bookmaker settlements. Record the actual adjusted selections and/or use the manual outcome to match the settled ticket.
+Stakes, profit and payout tracking remain deferred. The app does not verify live race fields or bookmaker availability and cannot infer exceptional settlement rules. All data stays on the current browser/device; keep regular JSON backups.
