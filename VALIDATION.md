@@ -1,19 +1,19 @@
-# V4.4 validation
+# V4.5 validation
 
-Engine checks passed for legacy Pending becoming automatic; explicit manual Won/Lost/Void preservation and manual hold; ordinary multi wins, losses, reduced single/multi wins, all legs void, unknown place terms; partial and full exotic refunds including exact combination counts; official tote substitutes, unknown-substitute Pending and abandoned-tote exceptions.
+Checked in Chromium at a 393 × 852 phone viewport with synthetic saved meeting data.
 
-Browser checks passed at 390 × 844 for:
+- My Bets displays actualBets only, including custom tickets without recommendation links.
+- Completed Won/Lost/Void tickets are collapsed; reduced wins retain their status.
+- The meeting has one My Bets button and no Review My Bets button.
+- Legacy review route opens My Bets without unplaced recommendations or review counts.
+- Recommendation search starts empty and returns matching originals only after an explicit search.
+- Saving a searched recommendation returns to that search and displays Bet Saved — Edit.
+- Reopening a saved recommendation edits the existing ticket without creating a duplicate.
+- Previously manual outcomes are preserved until explicitly switched to automatic; prior value retained.
+- Automatic tickets recalculate when results change; missing results produce pending tickets.
+- Results & Scratchings save updates outcomes and returns to My Bets.
+- Storage reload retains placed tickets, notes and historical Didn’t Place markers.
+- No JavaScript runtime errors or horizontal overflow in the tested phone layout.
+- App and service-worker JavaScript syntax checks pass.
 
-- Saving a recommended Trifecta and returning to its selected race, strategy, Top 5 option and scroll position.
-- Saved-button labels, the explicit already-saved message and no duplicate on a second save.
-- Returning from copied multi and Quaddie editors to their recommendation screens.
-- Cancel returning to the same recommendation without saving draft changes.
-- One results/scratchings form, including place terms and an official substitute.
-- Updated ticket status display for reduced multis and substituted Quaddies.
-- A manually confirmed losing ticket remaining unchanged when race data changes.
-- Legacy Pending updating from results and explicit manual hold staying Pending.
-- Saving from Quick Review returning there.
-- Validation rejecting a scratched horse also entered as a finisher.
-- Data retained after reload, unchanged original prediction snapshots, no horizontal overflow in the tested Performance view, no page JavaScript errors and offline navigation.
-
-Tests used synthetic fixtures. No live GitHub deployment or user-stored meeting was changed. Exact bookmaker payouts, deductions, dead heats, SRM condition evaluation and special settlements are not modelled; those are clearly directed to manual review.
+No user meetings or bookmaker account data were used. Settlement rules are unchanged from V4.4. The package is prepared for manual GitHub upload; the live site has not been deployed by this task.
