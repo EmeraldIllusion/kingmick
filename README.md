@@ -1,26 +1,49 @@
-# KingMick V4.5 — placed bets only
+# KingMick V4.6 — Performance & Tipster Leaderboard
 
-1. Export a backup from History before uploading.
-2. Extract this ZIP. Upload all files inside to your existing GitHub repository root, replacing matching files. Include kingmick-v4-5.js.
-3. Commit and wait for the GitHub Pages deployment to finish.
-4. Open https://emeraldillusion.github.io/kingmick/?update=4.5 in the same Brave browser/device. The Home screen should say KINGMICK V4.5.
+## Install
 
-Do not clear site data. This update retains the existing browser storage key, meetings, actual tickets, manually marked outcomes, scratchings, results and notes. Older versioned JavaScript bundles can remain; this version only loads kingmick-v4-5.js.
+1. Export a fresh backup from History.
+2. Extract this ZIP. Upload all the files inside to the root of your existing GitHub repository. Replace matching files and include the new kingmick-v4-6.js.
+3. Commit and wait for GitHub Pages deployment to finish.
+4. Open https://emeraldillusion.github.io/kingmick/?update=4.6 in the same Brave browser/device. Home should display KINGMICK V4.6.
 
-## One My Bets screen
+Do not clear site data. Meetings, snapshots, results, scratchings, profiles, notes and personal tickets remain stored under the existing browser data key. Older JavaScript bundles can remain in the repository; this release loads its own versioned bundle.
 
-The meeting now has one My Bets button. Review My Bets no longer opens the original-recommendation checklist. Only tickets actually saved as placed appear in My Bets; no source link is required for a ticket to count or settle.
+## KingMick Performance
 
-Pending placed tickets are visible. Completed tickets (Won, Lost, Fully Voided and reduced/refunded variants) are automatically grouped into a collapsed Completed tickets section, with each ticket expandable. Unplaced recommendations create no pending items, review tasks, or actual-bet statistics. Existing Didn’t Place markers remain stored but do not appear in this screen.
+Home → KingMick Performance now opens the streamlined recommendation-success page. Choose all meetings or one meeting. See the overall success rate, wins out of decided recommendations, pending and excluded counts. Expand a bet category, then an individual recommendation, to see the saved original combinations, entered race results and assessment reason.
 
-To record another placed ticket, expand Add a placed ticket. Search recommendations shows nothing until you submit a search; results offer I Placed This Bet or Bet Saved — Edit. Custom tickets, optional Daily Double and Treble remain available. Saving a recommendation returns to the search you came from. Existing recommendation pages also retain their save buttons and return behaviour.
+Each original saved recommendation counts once whether or not it was placed. A winning combination within a boxed or KingMick recommendation counts as one successful recommendation. Pending, fully voided and invalid legacy recommendations do not enter the win-rate denominator. Larger combinations cover more outcomes; compare like strategies.
 
-## Automatic outcomes
+The calculation now uses the same standard settlement evaluator as automatic personal tickets, applied to the original saved combinations and selections. It normalizes numeric/string horse numbers and does not regenerate strategies from current rules. Standard multis remove void legs, exotics remove refunded scratched combinations, and Quaddies use an official tote substitute where required. Missing results, paid-place terms or required substitutes can leave recommendations pending. Unsupported partial tote abandonment remains pending for manual bookmaker confirmation; personal manual outcomes never override recommendation figures.
 
-Save Results & Scratchings to recalculate automatic placed tickets. Outcomes also update when results are corrected and when My Bets or performance is opened. No separate review step is required. Legacy Pending tickets use automatic assessment too.
+Earlier/reconstructed recommendations remain identified and separate from current-rule totals. Optional Daily Doubles/Trebles are not assumed available and are not generated as default performance records.
 
-Previously manually marked Won/Lost/Void outcomes are retained. Expand Previously marked outcomes and choose Use Automatic for These Tickets to switch standard tickets in this meeting to automatic assessment together. A per-ticket Use Automatic Result button is also available. The previous manual value is retained on the ticket; you can choose a manual outcome again in Edit Ticket. Explicit special-product tickets remain manual.
+Enter Results from Performance to choose a meeting or edit the selected one. Save & Update Results returns to Performance and recalculates from stored results. Entering or correcting results also updates the Tipster Leaderboard automatically when it is opened.
 
-Automatic assessment uses the actual saved ticket, including your replacements and tweaks, rather than requiring a link to an original recommendation. Missing results, missing paid-place terms, a required official tote substitute, or unsupported special settlement can leave a placed ticket Pending with a reason. Standard multi void legs, exotic scratched combinations, and official tote substitutions retain the V4.4 calculation rules. No new bookmaker settlement rules or payout calculations are introduced.
+Personal My Bets data remains available under History → meeting → Optional personal tickets. Its results are separate from KingMick Performance. You do not need to record placed bets to measure recommendations.
 
-V4.4 features, recommendation rules, duplicate prevention, snapshots, backups, profiles and performance remain available. Profit tracking is still deferred.
+## Tipster Leaderboard
+
+Home → Tipster Leaderboard ranks tipsters using the approved example formula, based on original saved tips and complete race results.
+
+Per-race points (maximum 100):
+
+- Winner tipped first: 60; second: 45; third: 30; fourth: 15; absent: 0.
+- Any tipped horse finishing second adds 20; third adds 13⅓; fourth adds 6⅔, independent of tip order.
+- Average across eligible races. Blend with a starting score of 50 weighted as 10 races:
+  Tipster Score = (total race points + 500) / (assessed races + 10).
+
+Scores are rounded to one decimal place for display and rank. At least 10 eligible races are required for a rank. Rank 1 has a gold border, rank 2 silver, rank 3 bronze; others use normal colours. Equal rounded scores share rank and medal, with competition ranking (1, 1, 3). Provisional tipsters appear separately until they have 10 assessed races; zero-result profiles appear in a collapsed section without a score.
+
+Expand any tipster to see assessed races, first-pick wins, winner among their four tips, and average race points. How do rankings work? explains the formula.
+
+Eligibility: saved completed meeting, four valid distinct finishing positions, and four valid distinct non-scratched tips. Void/incomplete races and tip sets affected by a scratching are excluded, without promoting or replacing the original tips. A profile counts once per race; ambiguous duplicate profile links are excluded. The score is an accuracy measure, not profit or a forecast; tipsters may have tipped different races.
+
+Profiles linked to any remaining saved meeting stay protected from deletion. Unused profiles can still be deleted individually or together. No test names, races or preview data are included in the app package.
+
+## Preserved features
+
+Strict 35-point Quaddie selection rules, Low Consensus Exception, explicit ties, saved KingMick combination rules, recommendation buttons, editable personal tickets, duplicate prevention, backups, race mapping and offline support remain. Profit tracking is deferred.
+
+The update does not invent new bookmaker rules. Standard settlement support and special-product limitations remain as in V4.4/V4.5.

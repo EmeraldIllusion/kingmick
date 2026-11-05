@@ -1,19 +1,24 @@
-# V4.5 validation
+# V4.6 validation
 
-Checked in Chromium at a 393 × 852 phone viewport with synthetic saved meeting data.
+Tested in Chromium using synthetic saved meetings and profiles, with no user data.
 
-- My Bets displays actualBets only, including custom tickets without recommendation links.
-- Completed Won/Lost/Void tickets are collapsed; reduced wins retain their status.
-- The meeting has one My Bets button and no Review My Bets button.
-- Legacy review route opens My Bets without unplaced recommendations or review counts.
-- Recommendation search starts empty and returns matching originals only after an explicit search.
-- Saving a searched recommendation returns to that search and displays Bet Saved — Edit.
-- Reopening a saved recommendation edits the existing ticket without creating a duplicate.
-- Previously manual outcomes are preserved until explicitly switched to automatic; prior value retained.
-- Automatic tickets recalculate when results change; missing results produce pending tickets.
-- Results & Scratchings save updates outcomes and returns to My Bets.
-- Storage reload retains placed tickets, notes and historical Didn’t Place markers.
-- No JavaScript runtime errors or horizontal overflow in the tested phone layout.
-- App and service-worker JavaScript syntax checks pass.
+- A complete six-horse-board fixture produces 65 original recommendations and multiple correct successes.
+- Every recommendation uses the same standard calculation as an equivalent automatic ticket.
+- Numeric and string horse numbers yield identical original outcomes.
+- Personal ticket tweaks and manual wins do not affect recommendation totals.
+- Scratched multi legs produce reduced wins; scratched straight exotics void; Quaddie official substitutes apply.
+- Missing substitutes, finishers and paid-place terms remain pending when required.
+- Invalid legacy recommendations are excluded; earlier records are separately displayed.
+- Snapshot and original tip data remain unchanged by result assessment.
+- Category/individual expansion and meeting filtering work. No competing actual-results tabs appear in Performance.
+- Enter/save results returns to Performance and updates automatic assessments; personal notes retained.
+- Leaderboard scoring: perfect race = 100 points; no matching tips = 0; fourth-ranked winner plus remaining top-four coverage = 55.
+- Ten perfect races score 75.0 after the approved history adjustment.
+- Ties share rank/colour and skip following ranks; provisional and zero-result profiles remain separate.
+- Scratching-affected tips, incomplete/void races and duplicate profile-race links are excluded from tipster scoring.
+- Used profiles cannot be deleted; unused profile deletion works.
+- Reload preserves saved meetings and rankings.
+- Phone/desktop checks at widths 320, 393 and 760 pixels show no horizontal overflow.
+- No JavaScript runtime errors. App and service-worker syntax checks pass.
 
-No user meetings or bookmaker account data were used. Settlement rules are unchanged from V4.4. The package is prepared for manual GitHub upload; the live site has not been deployed by this task.
+Prepared for manual GitHub upload. This task has not deployed the public site or inspected the user's on-device meeting data. The exact earlier 2-versus-11 discrepancy was not reconstructed; the separate original assessment path has been replaced with the shared evaluator and tested independently.
