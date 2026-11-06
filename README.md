@@ -1,49 +1,63 @@
-# KingMick V4.6 — Performance & Tipster Leaderboard
+# KingMick V4.7 — The KingMick Special Pick
 
 ## Install
 
 1. Export a fresh backup from History.
-2. Extract this ZIP. Upload all the files inside to the root of your existing GitHub repository. Replace matching files and include the new kingmick-v4-6.js.
+2. Extract this ZIP. Upload all files inside to the root of your existing GitHub repository, replacing matching files. Include the new kingmick-v4-7.js.
 3. Commit and wait for GitHub Pages deployment to finish.
-4. Open https://emeraldillusion.github.io/kingmick/?update=4.6 in the same Brave browser/device. Home should display KINGMICK V4.6.
+4. Open https://emeraldillusion.github.io/kingmick/?update=4.7 in the same Brave browser/device. Home should display KINGMICK V4.7.
 
-Do not clear site data. Meetings, snapshots, results, scratchings, profiles, notes and personal tickets remain stored under the existing browser data key. Older JavaScript bundles can remain in the repository; this release loads its own versioned bundle.
+Do not clear site data. The existing data key is retained. Existing meetings, original snapshots, results, scratchings, profiles, notes, personal tickets and manually recorded personal outcomes are preserved. Earlier JavaScript bundles can remain; this version loads its own bundle.
 
-## KingMick Performance
+## Recommendation performance: direct result matching
 
-Home → KingMick Performance now opens the streamlined recommendation-success page. Choose all meetings or one meeting. See the overall success rate, wins out of decided recommendations, pending and excluded counts. Expand a bet category, then an individual recommendation, to see the saved original combinations, entered race results and assessment reason.
+KingMick Performance now compares the saved original selections directly with the entered race results. It does not apply bookmaker substitutions, scratching refunds, reduced-multi settlements or personal manual outcomes.
 
-Each original saved recommendation counts once whether or not it was placed. A winning combination within a boxed or KingMick recommendation counts as one successful recommendation. Pending, fully voided and invalid legacy recommendations do not enter the win-rate denominator. Larger combinations cover more outcomes; compare like strategies.
+Example: original Quaddie selections in a leg were 3, 1, 2 and 15. Horse 1 scratched; horse 5 won. That original recommendation is Lost. No substitute information or manual confirmation is required, regardless of the personal bookmaker ticket settlement.
 
-The calculation now uses the same standard settlement evaluator as automatic personal tickets, applied to the original saved combinations and selections. It normalizes numeric/string horse numbers and does not regenerate strategies from current rules. Standard multis remove void legs, exotics remove refunded scratched combinations, and Quaddies use an official tote substitute where required. Missing results, paid-place terms or required substitutes can leave recommendations pending. Unsupported partial tote abandonment remains pending for manual bookmaker confirmation; personal manual outcomes never override recommendation figures.
+- Quaddies and Win multis need their original selections to cover all required winners.
+- Place selections need their original horse in the confirmed paid places.
+- Exotics match the saved original ordered combinations against finishers.
+- A scratched original selection is never promoted, substituted or removed from the accuracy test. If it does not match a required result, it misses.
+- A known losing leg can settle the recommendation as Lost even when another result is missing.
+- Required missing finishers / Place terms remain Pending where an outcome cannot yet be determined.
+- Recommendations involving an abandoned race are excluded. Invalid legacy recommendations remain excluded.
 
-Earlier/reconstructed recommendations remain identified and separate from current-rule totals. Optional Daily Doubles/Trebles are not assumed available and are not generated as default performance records.
+These rules apply to existing performance history too, without editing the saved selections. The accuracy totals can change from V4.6 because the definition is now original selection success rather than bookmaker ticket settlement.
 
-Enter Results from Performance to choose a meeting or edit the selected one. Save & Update Results returns to Performance and recalculates from stored results. Entering or correcting results also updates the Tipster Leaderboard automatically when it is opened.
+Optional personal My Bets remains separate and retains its existing supported settlement rules. Substitute fields are now tucked under Optional: personal ticket substitute, and only shown when such personal tickets exist. They are never required for recommendation performance.
 
-Personal My Bets data remains available under History → meeting → Optional personal tickets. Its results are separate from KingMick Performance. You do not need to record placed bets to measure recommendations.
+## The KingMick Special Pick
 
-## Tipster Leaderboard
+A royal purple card with gold accents now appears on Betting Recommendations. It shows one selected bet for the meeting, with race/leg, exact selections and combination count. View Special Pick opens the full choice; Copy and I Placed This Bet are available. Reopening a saved personal ticket edits it rather than creating a duplicate. Saving/cancelling returns to the Special Pick page.
 
-Home → Tipster Leaderboard ranks tipsters using the approved example formula, based on original saved tips and complete race results.
+New meeting recommendations automatically save a Special Pick at generation. Optional confirmed Place terms can be entered during meeting setup. Unknown terms exclude Place candidates rather than assuming a market exists. For existing meetings with no results on the current or a future date, Create Special Pick allows entering those terms before saving a single choice.
 
-Per-race points (maximum 100):
+Existing historical meetings and meetings with entered results are not backfilled with Special Picks. That would create hindsight-selected performance. A new Special Pick uses only pre-result tips, known scratchings, confirmed Place terms and eligible earlier history. It is saved with its own model version, creation time and frozen history weights. Later results, new history and scratchings never silently choose a replacement. A scratching-change notice tells you to check saved selections before placing them.
 
-- Winner tipped first: 60; second: 45; third: 30; fourth: 15; absent: 0.
-- Any tipped horse finishing second adds 20; third adds 13⅓; fourth adds 6⅔, independent of tip order.
-- Average across eligible races. Blend with a starting score of 50 weighted as 10 races:
-  Tipster Score = (total race points + 500) / (assessed races + 10).
+The Special Pick has its own category in KingMick Performance, with one saved pick per meeting. It is also included once in the overall recommendation count, as a distinct saved strategy. Its performance uses the same direct original-selection rules; no placed-ticket entry is needed.
 
-Scores are rounded to one decimal place for display and rank. At least 10 eligible races are required for a rank. Rank 1 has a gold border, rank 2 silver, rank 3 bronze; others use normal colours. Equal rounded scores share rank and medal, with competition ranking (1, 1, 3). Provisional tipsters appear separately until they have 10 assessed races; zero-result profiles appear in a collapsed section without a score.
+### Model scope
 
-Expand any tipster to see assessed races, first-pick wins, winner among their four tips, and average race points. How do rankings work? explains the formula.
+The model compares supported Win and Place singles, saved Exacta/Trifecta/First Four options of at most 12 combinations, and saved 2-/4-leg Win/Place multis. SRMs are excluded because their actual market conditions and availability are not captured. The app does not invent an SRM product. A single Place bet may frequently have the strongest model support; variety is not forced.
 
-Eligibility: saved completed meeting, four valid distinct finishing positions, and four valid distinct non-scratched tips. Void/incomplete races and tip sets affected by a scratching are excluded, without promoting or replacing the original tips. A profile counts once per race; ambiguous duplicate profile links are excluded. The score is an accuracy measure, not profit or a forecast; tipsters may have tipped different races.
+This is a consensus ranking heuristic. It does not provide a calibrated winning probability, guaranteed best bet, expected payout or value rating. Complete fields, odds and market availability are not available. Verify the proposed market is offered before placing it.
 
-Profiles linked to any remaining saved meeting stay protected from deletion. Unused profiles can still be deleted individually or together. No test names, races or preview data are included in the app package.
+### Algorithm, version 1
 
-## Preserved features
+For reproducibility, the implementation:
 
-Strict 35-point Quaddie selection rules, Low Consensus Exception, explicit ties, saved KingMick combination rules, recommendation buttons, editable personal tickets, duplicate prevention, backups, race mapping and offline support remain. Profit tracking is deferred.
+- Uses every valid tipster's four preference-ordered selections with the established 20/15/10/5 scoring, plus first-pick agreement.
+- Applies a mild historical reliability weight using the existing tipster accuracy score with its 10-race/50-point starting prior. Neutral weighting applies when eligible history is unavailable.
+- Includes only earlier-date history whose resultsUpdatedAt timestamp was already recorded before this pick was created. The current meeting's results and later history are not used.
+- Combines weighted rank support (65%) and first-choice support (35%), with a small smoothing term and a 1.65 power for relative runner strengths.
+- Reserves three unlisted-runner placeholders with 30% of listed-runner strength in total, so incomplete tip lists are not treated as complete race fields. This is a modelling assumption, not a measured field estimate.
+- Uses 6,000 seeded weighted order samples per leg to compare supported candidates, with cross-race products for multis. Equal candidate support is resolved by fewer combinations, then stable candidate key. The seed, version and saved inputs make the model reproducible.
+- Excludes scratched candidates and requires at least two valid tipsters for a race model. If none can be assessed, no pick is fabricated.
+- Stores an internal model-support score; it is not displayed as a win probability.
 
-The update does not invent new bookmaker rules. Standard settlement support and special-product limitations remain as in V4.4/V4.5.
+The 12-combination limit prevents arbitrarily large exotics from winning the comparison simply by covering almost every outcome. The usual KingMick recommendation rules remain unchanged.
+
+## Other retained features
+
+The Tipster Leaderboard, its approved scoring formula, provisional profiles, shared ties/medal colours, protected profile deletion, strict 35-point Quaddie rules, Low Consensus Exception, original saved combination rules, explicit ties, backups and offline support remain. Profit tracking remains deferred.

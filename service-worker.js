@@ -1,5 +1,5 @@
-const CACHE='kingmick-v4-6';
-const ASSETS=['./','./index.html','./styles.css?v=4.6','./kingmick-v4-6.js','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
+const CACHE='kingmick-v4-7';
+const ASSETS=['./','./index.html','./styles.css?v=4.7','./kingmick-v4-7.js','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',event=>{
   event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS.map(path=>new Request(new URL(path,self.registration.scope),{cache:'reload'})))).then(()=>self.skipWaiting()));
 });
@@ -9,7 +9,7 @@ self.addEventListener('activate',event=>{
 self.addEventListener('fetch',event=>{
   const request=event.request,url=new URL(request.url);
   if(request.method!=='GET'||url.origin!==self.location.origin)return;
-  if(url.pathname.endsWith('/kingmick-v4-6.js')){
+  if(url.pathname.endsWith('/kingmick-v4-7.js')){
     event.respondWith(caches.match(request).then(cached=>cached||fetch(request)));
     return;
   }

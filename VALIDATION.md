@@ -1,24 +1,23 @@
-# V4.6 validation
+# V4.7 validation
 
-Tested in Chromium using synthetic saved meetings and profiles, with no user data.
+Tested in Chromium using synthetic saved data, including the reported selection/result pattern.
 
-- A complete six-horse-board fixture produces 65 original recommendations and multiple correct successes.
-- Every recommendation uses the same standard calculation as an equivalent automatic ticket.
-- Numeric and string horse numbers yield identical original outcomes.
-- Personal ticket tweaks and manual wins do not affect recommendation totals.
-- Scratched multi legs produce reduced wins; scratched straight exotics void; Quaddie official substitutes apply.
-- Missing substitutes, finishers and paid-place terms remain pending when required.
-- Invalid legacy recommendations are excluded; earlier records are separately displayed.
-- Snapshot and original tip data remain unchanged by result assessment.
-- Category/individual expansion and meeting filtering work. No competing actual-results tabs appear in Performance.
-- Enter/save results returns to Performance and updates automatic assessments; personal notes retained.
-- Leaderboard scoring: perfect race = 100 points; no matching tips = 0; fourth-ranked winner plus remaining top-four coverage = 55.
-- Ten perfect races score 75.0 after the approved history adjustment.
-- Ties share rank/colour and skip following ranks; provisional and zero-result profiles remain separate.
-- Scratching-affected tips, incomplete/void races and duplicate profile-race links are excluded from tipster scoring.
-- Used profiles cannot be deleted; unused profile deletion works.
-- Reload preserves saved meetings and rankings.
-- Phone/desktop checks at widths 320, 393 and 760 pixels show no horizontal overflow.
-- No JavaScript runtime errors. App and service-worker syntax checks pass.
+- Original Quaddie leg 3/1/2/15 versus winner 5 resolves Lost with a scratched horse and no substitute.
+- Entering an official substitute does not change recommendation accuracy.
+- Original scratched multi selections are not removed; original scratched exotic combinations are not refunded for accuracy.
+- Personal ticket calculation retains separate substitute, reduced-multi and refund treatment.
+- Missing results remain pending; an abandoned included race is excluded.
+- New generated snapshots save exactly one Special Pick; supported candidates are compared with bounded combination counts.
+- Deterministic repeated generation from identical pre-result inputs yields identical saved pick data.
+- Place terms are saved with the choice; unknown terms never create Place candidates.
+- At least two valid tipsters required. No pick fabricated if all supplied horses are scratched.
+- History recorded after the pick cutoff is excluded; eligible earlier results can influence reliability weights.
+- Existing past/results-entered meetings cannot be backfilled. Saved choices do not change after results.
+- Special Pick is present in its own performance category exactly once per meeting.
+- Royal purple/gold detail page, recommendation navigation, copy/save controls, return-to-origin and duplicate prevention checked.
+- Existing pre-result meeting creation works. Reload retains the saved Special Pick and personal ticket.
+- Substitute fields hidden when irrelevant; optional personal ticket fields remain available.
+- No runtime errors; layout fits widths 320, 393 and 760 pixels.
+- Application and service-worker syntax checks pass; versioned asset references and existing storage key checked.
 
-Prepared for manual GitHub upload. This task has not deployed the public site or inspected the user's on-device meeting data. The exact earlier 2-versus-11 discrepancy was not reconstructed; the separate original assessment path has been replaced with the shared evaluator and tested independently.
+No user on-device data was inspected or changed. The public site has not been deployed by this task. The Special Pick model is a transparent heuristic and has not been calibrated or validated for predictive accuracy or profitability.
